@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Sports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="store">
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">SS</div>
+      <div>
+        <p class="eyebrow">Your neighbourhood sports store</p>
+        <h1>Shubham Sports</h1>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a class="button button-outline" href="admin.html">Admin Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Gear up for every game</p>
+        <h2>Sports essentials, daily-use equipment, and quick local service.</h2>
+        <p class="hero-text">
+          Browse the latest products, check live availability, and contact the shop directly for bulk orders, team kits, and same-day pickup.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#products">Explore Products</a>
+          <a class="button button-secondary" href="#contact">Call the Shop</a>
+        </div>
+
+        <div class="hero-stats">
+          <article>
+            <strong id="statProducts">0</strong>
+            <span>Products listed</span>
+          </article>
+          <article>
+            <strong id="statAvailable">0</strong>
+            <span>Available now</span>
+          </article>
+          <article>
+            <strong>7 Days</strong>
+            <span>Customer support</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="chip">Top seller</span>
+          <span class="chip chip-soft">Owner-managed store</span>
+        </div>
+        <img id="heroPreview" src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80" alt="Sports equipment display">
+        <div class="hero-card-copy">
+          <h3>Quality gear with transparent pricing</h3>
+          <p>Update-ready storefront with clear product photos, price editing, and instant stock visibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-panel" id="products">
+      <div>
+        <p class="eyebrow">Shop catalogue</p>
+        <h2>Find your sports gear fast</h2>
+      </div>
+
+      <div class="controls">
+        <label class="search-box">
+          <span>Search</span>
+          <input type="search" id="searchInput" placeholder="Search by name or category">
+        </label>
+
+        <label>
+          <span>Category</span>
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Availability</span>
+          <select id="availabilityFilter">
+            <option value="all">All items</option>
+            <option value="in-stock">In stock</option>
+            <option value="out-of-stock">Out of stock</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sort by</span>
+          <select id="sortFilter">
+            <option value="featured">Featured first</option>
+            <option value="price-low">Price: low to high</option>
+            <option value="price-high">Price: high to low</option>
+            <option value="name">Name</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Live inventory</p>
+          <h2>Products for players, schools, and regular customers</h2>
+        </div>
+        <p id="resultsSummary" class="results-summary"></p>
+      </div>
+
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section class="feature-strip" id="services">
+      <article>
+        <h3>Live stock status</h3>
+        <p>Customers can quickly see what is available before visiting the shop.</p>
+      </article>
+      <article>
+        <h3>Owner-friendly updates</h3>
+        <p>Admin can upload product images, edit prices, feature items, and change availability anytime.</p>
+      </article>
+      <article>
+        <h3>Quick enquiry support</h3>
+        <p>Every product includes a direct enquiry button for faster customer communication.</p>
+      </article>
+    </section>
+
+    <section class="contact-panel" id="contact">
+      <div>
+        <p class="eyebrow">Visit or contact us</p>
+        <h2>Shubham Sports is ready for walk-in and repeat customers.</h2>
+        <p>Use this demo website for your daily shop display and update inventory from the separate admin panel.</p>
+      </div>
+
+      <div class="contact-card">
+        <p><strong>Shop Phone:</strong> +91 98765 43210</p>
+        <p><strong>Store Hours:</strong> 9:00 AM to 9:00 PM</p>
+        <p><strong>Services:</strong> Cricket gear, badminton, football, school sports items, accessories</p>
+        <a class="button" href="tel:+919876543210">Call Now</a>
+      </div>
+    </section>
+  </main>
+
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image" src="" alt="">
+        <span class="product-badge"></span>
+      </div>
+      <div class="product-content">
+        <div class="product-head">
+          <p class="product-category"></p>
+          <h3 class="product-title"></h3>
+        </div>
+        <p class="product-description"></p>
+        <div class="product-meta">
+          <strong class="product-price"></strong>
+          <span class="product-status"></span>
+        </div>
+        <div class="product-actions">
+          <button class="button small product-enquiry">Enquire</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

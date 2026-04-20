@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Shubham Sports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+  <header class="site-header compact">
+    <div class="brand">
+      <div class="brand-mark">SS</div>
+      <div>
+        <p class="eyebrow">Product control center</p>
+        <h1>Shubham Sports Admin</h1>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="index.html">Back to Storefront</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section id="loginSection" class="admin-shell login-shell">
+      <div class="login-panel">
+        <p class="eyebrow">Admin access</p>
+        <h2>Manage products, prices, and availability</h2>
+        <p class="helper-text">Separate login keeps the main website focused on customers while letting the owner update items anytime.</p>
+
+        <form id="loginForm" class="admin-form">
+          <label>
+            <span>Admin ID</span>
+            <input type="text" id="adminId" placeholder="Enter admin ID" required>
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input type="password" id="adminPassword" placeholder="Enter password" required>
+          </label>
+
+          <button type="submit" class="button">Login</button>
+          <p id="loginMessage" class="form-message"></p>
+        </form>
+
+        <div class="credential-hint">
+          <p><strong>Demo ID:</strong> `aditya@123`</p>
+          <p><strong>Demo Password:</strong> `Aditya01`</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardSection" class="admin-shell hidden">
+      <div class="dashboard-header">
+        <div>
+          <p class="eyebrow">Dashboard</p>
+          <h2>Inventory manager</h2>
+        </div>
+        <div class="dashboard-actions">
+          <button class="button button-secondary" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <h3>Add new product</h3>
+          <form id="productForm" class="admin-form">
+            <input type="hidden" id="productId">
+
+            <label>
+              <span>Product name</span>
+              <input type="text" id="productName" required placeholder="Example: Cricket Bat Pro">
+            </label>
+
+            <label>
+              <span>Category</span>
+              <input type="text" id="productCategory" required placeholder="Example: Cricket">
+            </label>
+
+            <label>
+              <span>Price (INR)</span>
+              <input type="number" id="productPrice" min="0" step="1" required placeholder="1499">
+            </label>
+
+            <label>
+              <span>Description</span>
+              <textarea id="productDescription" rows="4" placeholder="Short product description"></textarea>
+            </label>
+
+            <label>
+              <span>Availability</span>
+              <select id="productAvailability">
+                <option value="in-stock">In stock</option>
+                <option value="out-of-stock">Out of stock</option>
+              </select>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="productFeatured">
+              <span>Show as featured item</span>
+            </label>
+
+            <label>
+              <span>Upload product image</span>
+              <input type="file" id="productImage" accept="image/*">
+            </label>
+
+            <div class="image-preview-card">
+              <img id="imagePreview" src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=1200&q=80" alt="Product preview">
+            </div>
+
+            <div class="inline-actions">
+              <button type="submit" class="button" id="saveBtn">Save product</button>
+              <button type="button" class="button button-outline hidden" id="cancelEditBtn">Cancel edit</button>
+            </div>
+
+            <p id="productMessage" class="form-message"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Current products</h3>
+            <p class="helper-text">Click edit to update image, price, or availability.</p>
+          </div>
+          <div id="adminProductList" class="admin-product-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <template id="adminProductTemplate">
+    <article class="admin-product-card">
+      <img class="admin-product-image" src="" alt="">
+      <div class="admin-product-copy">
+        <div class="admin-product-head">
+          <div>
+            <p class="product-category"></p>
+            <h4 class="product-title"></h4>
+          </div>
+          <span class="product-status"></span>
+        </div>
+        <p class="product-description"></p>
+        <strong class="product-price"></strong>
+      </div>
+      <div class="admin-product-actions">
+        <button class="button small edit-product">Edit</button>
+        <button class="button small button-danger delete-product">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
